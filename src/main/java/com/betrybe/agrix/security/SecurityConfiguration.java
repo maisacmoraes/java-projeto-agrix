@@ -43,6 +43,12 @@ public class SecurityConfiguration {
         .authorizeHttpRequests(authorize -> authorize
             .requestMatchers(HttpMethod.POST, "/persons").permitAll()
             .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+            .requestMatchers(HttpMethod.GET, "/farms")
+            .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER", "ROLE_MANAGER")
+            .requestMatchers(HttpMethod.GET, "/crops")
+            .hasAnyAuthority("ROLE_ADMIN", "ROLE_MANAGER")
+            .requestMatchers(HttpMethod.GET, "/fertilizers")
+            .hasAnyAuthority("ROLE_ADMIN")
             .anyRequest().authenticated()
         )
         .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
