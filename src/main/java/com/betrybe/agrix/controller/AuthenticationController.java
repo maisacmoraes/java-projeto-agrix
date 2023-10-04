@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Authentication controller.
+ */
 @RestController
 @RequestMapping("/auth")
 public class AuthenticationController {
@@ -23,27 +26,30 @@ public class AuthenticationController {
   private final TokenService tokenService;
 
   @Autowired
-  public AuthenticationController(AuthenticationManager authenticationManager, PersonService personService,
+  public AuthenticationController(AuthenticationManager authenticationManager,
+      PersonService personService,
       TokenService tokenService) {
     this.authenticationManager = authenticationManager;
     this.tokenService = tokenService;
   }
 
+  /**
+   * Authenticates a user.
+   */
   @PostMapping("/login")
-  public TokenDto login(@RequestBody AuthenticationDto authenticationDTO){
+  public TokenDto login(@RequestBody AuthenticationDto authenticationDto) {
 
-  UsernamePasswordAuthenticationToken usernamePassword =
+    UsernamePasswordAuthenticationToken usernamePassword =
                 new UsernamePasswordAuthenticationToken(
-                    authenticationDTO.username(),
-                    authenticationDTO.password()
+                    authenticationDto.username(),
+                    authenticationDto.password()
                 );
-  Authentication auth = authenticationManager.authenticate(usernamePassword);
+    Authentication auth = authenticationManager.authenticate(usernamePassword);
 
-  UserDetails userDetails = (UserDetails) auth.getPrincipal();
+    UserDetails userDetails = (UserDetails) auth.getPrincipal();
 
-  String token = tokenService.generateToken(userDetails);
+    String token = tokenService.generateToken(userDetails);
 
-  return new TokenDto(token);
-}
-
+    return new TokenDto(token);
+  }
 }
