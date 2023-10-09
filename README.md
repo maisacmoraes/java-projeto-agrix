@@ -52,10 +52,5 @@ Certifique-se de que o projeto esteja em execução e execute os testes unitári
 ./mvnw test
 ```
 
-### Contribuindo
-Sinta-se à vontade para contribuir com melhorias ou correções para o Agrix. Crie uma solicitação de pull com suas alterações e descreva-as detalhadamente.
-
-### Licença
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para obter detalhes.
-
-Nota: Este é um projeto fictício criado apenas para fins de demonstração e aprendizado. Não se destina a ser usado em produção, mas sim como um exemplo de como aplicar tecnologias Spring em um projeto Java.
+### Nota:
+Este é um projeto fictício criado apenas para fins de demonstração e aprendizado. Não se destina a ser usado em produção, mas sim como um exemplo de como aplicar tecnologias Spring em um projeto Java.
