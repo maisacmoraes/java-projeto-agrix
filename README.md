@@ -52,5 +52,6 @@ Certifique-se de que o projeto esteja em execução e execute os testes unitári
 ./mvnw test
 ```
 
-### Nota:
-Este é um projeto fictício criado apenas para fins de demonstração e aprendizado. Não se destina a ser usado em produção, mas sim como um exemplo de como aplicar tecnologias Spring em um projeto Java.
+---
+
+**Nota:** Este é um projeto fictício criado apenas para fins de demonstração e aprendizado. Não se destina a ser usado em produção, mas sim como um exemplo de como aplicar tecnologias Spring em um projeto Java.
